@@ -1,0 +1,96 @@
+doctype transitional
+html
+	head
+		meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+		meta http-equiv="Cache-Control" content="max-age=604800"
+		link rel="stylesheet" type="text/css" href="../src/css/main.css"
+		link rel="stylesheet" type="text/css" href="../src/css/jquery.mCustomScrollbar.css" 
+		script type="text/javascript" src="../src/js/jquery-1.8.3.min.js"
+		script type="text/javascript" src="../src/js/jquery.scrollTo-1.4.3.1-min.js"
+		script type="text/javascript" src="../src/js/jquery.localscroll-1.2.7-min.js"
+		script type="text/javascript" src="../src/js/jquery-ui-1.9.1.custom.min.js"
+		script type="text/javascript" src="../src/js/jquery.mousewheel.min.js"
+		script type="text/javascript" src="../src/js/jquery.mCustomScrollbar.min.js"
+		script type="text/javascript" src="../src/js/blog.js"
+
+		title =title 
+
+
+	body
+		#flag.blog
+			| LPS<br>Informatique
+
+		#menu
+			ul
+				li 
+					a.services href="../#services"	Services
+				li 
+					a.publications href="../#publications"	Publications
+				li 
+					a.blog href="/blog" Blog
+				li 
+					a.contact href="../#contact"	Contact
+
+		#main
+			#content
+				#blog.slide
+					object type="image/svg+xml" data="/src/img/slide1.svg" 
+						img src="/src/img/slide1.svg"
+
+					.inside
+
+						#subMenu 
+							h3 Index :
+							ul
+								li
+									a href="#blog-bydate" By date
+								li
+									a href="#blog-bytags" By tags
+
+						#blog-bydate.colLeft2
+							- posts_by_years.keys.sort.reverse.each do |year|
+								p =year 
+								- posts_by_years[year].reverse_each do |post|
+									a href=post.urlname #{post.date.strftime('%B %d')}: #{post.title}
+
+						#blog-bytags.colLeft2
+							ul
+								- posts_by_tags.keys.sort.each do |tag|
+									li
+										a.blog-tag-group #{tag} (#{posts_by_tags[tag].count})
+										ul
+											- posts_by_tags[tag].each do |post|
+												li
+													a href=post.urlname
+														=post.title
+
+						.colRight
+
+							#blog-header
+								h1.blog-title =title
+								ul.blog-details
+									li.blog-date =date.strftime('%B %d, %Y')
+									li.blog-tags 
+										- tags.sort.each do |tag|
+											a 
+												=tag
+				
+							#blog-content
+
+								== content 
+
+							#blog-navigation
+								#blog-previous
+									- if not previous_post.nil?
+										a href=previous_post.urlname
+											=previous_post.title
+								#blog-next
+									- if not next_post.nil?
+										a href=next_post.urlname
+											=next_post.title
+
+		#backgroundR
+			#slide4
+
+
+/ vim: ts=2:sw=2:ai:noet
