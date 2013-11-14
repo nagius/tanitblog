@@ -71,9 +71,13 @@ class Post
 	attr_reader :title, :tags, :date
 	
 	# Renderer in static to avoid multiple instancation
-	@@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, 
+	@@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(
+			:prettify => true
+		), 
 		:autolink => true, 
-		:space_after_headers => true
+		:space_after_headers => true,
+		:no_intra_emphasis => true,
+		:fenced_code_blocks => true
 	)
 
 	def initialize(file)
