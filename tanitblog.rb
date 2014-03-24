@@ -348,7 +348,8 @@ class Main
 			begin
 				opts.parse!
 				check_arguments
-			rescue TanitException, OptionParser::ParseError
+			rescue TanitException, OptionParser::ParseError => e
+				puts "Error: #{e.message}"
 				# Display help in case of error
 				puts opts
 				exit 3
@@ -361,8 +362,7 @@ class Main
 		
 		def check_arguments
 			if not (@options.generate or @options.list or @options.publish or @options.show)
-				puts "At least one action required."
-				raise TanitException
+				raise TanitException, "At least one action required."
 			end
 		end
 
