@@ -348,7 +348,7 @@ class Main
 			begin
 				opts.parse!
 				check_arguments
-			rescue Exception
+			rescue TanitException, OptionParser::ParseError
 				# Display help in case of error
 				puts opts
 				exit 3
