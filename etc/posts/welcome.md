@@ -2,8 +2,8 @@
 title: Why this blog is'nt running Wordpress ?
 date: 20131105
 tags:
- - ruby
- - blog
+ - Ruby
+ - Blog
 ---
 
 
