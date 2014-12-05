@@ -33,7 +33,7 @@ You need to follow these steps :
   
   
 Be careful, once switched to bridge mode I wasn't able to reach the admin interface (on 192.168.100.1), so make sure to disable the wifi before !
-In my case, if the wifi is enable on te router, the wired ports don't work anymore...
+In my case, if the wifi is enable on the router, the wired ports don't work anymore...
 
 To turn it back to normal mode, the only way I found is the factory reset.
 
