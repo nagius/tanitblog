@@ -82,7 +82,7 @@ driver=nl80211
 country_code=FR
 
 # Wireless network name 
-ssid=ChezWam
+ssid=MySSID
 
 # The RaspberryPi is slow, no need of 802.11n, let's go with g only
 hw_mode=g
@@ -90,7 +90,7 @@ channel=1
 
 # Set WPA2-PSK 
 wpa=2
-wpa_passphrase=bidonbidon
+wpa_passphrase=MyAwsomePassword
 wpa_key_mgmt=WPA-PSK
 auth_algs=1
 
