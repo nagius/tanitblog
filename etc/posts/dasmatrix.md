@@ -22,7 +22,7 @@ So I made this :
 
 <br><img src="/pub/DasMatrix/DasMatrix_v03.png" width="450" alt="DasMatrix">
 
-No, seriously, this is not only a computer graphics, I really built it :
+No, seriously, this is not a mockup, I really built it :
 
 <br><img src="/pub/DasMatrix/final_result.jpg" width="450" alt="DasMatrix">
 
