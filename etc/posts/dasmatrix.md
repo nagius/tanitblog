@@ -3,6 +3,7 @@ title: My custom ortholinear keyboard
 date: 20150918
 tags:
  - Keyboards
+ - Electronics
 ---
 Recently, I bought two nice keyboards: 
 
