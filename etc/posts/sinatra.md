@@ -42,6 +42,28 @@ install: --no-rdoc --no-ri
 update:  --no-rdoc --no-ri
 ```
 
+# RVM cheatsheet
+
+```
+# Update RVM
+rvm get stable
+
+# List available rubies
+rvm list known
+
+# List installed rubies
+rvm list
+
+# List gemset
+rvm gemset list
+
+# List all
+rvm list gemsets
+
+# List gems in the current gemset
+gem list
+```
+
 # Create a new project
 
 Once Ruby is setup with the version you need, it's time to create the project's tree.
