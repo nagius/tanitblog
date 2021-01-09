@@ -19,7 +19,7 @@ So what is this black magic ?
 
 Like often in these cases, the only way to find out is a scope. Luckly I had a SDO on hands.
 
-<img src="/blog/img/voltage-dip-no-cap.jpg" width="450" alt="Voltage drop without capacitor">
+<img src="/blog/img/esp/voltage-dip-no-cap.jpg" width="450" alt="Voltage drop without capacitor">
 <div align="center">*Voltage drop without capacitor*</div>
 
 And here is the culprit. A big drop of voltage to 2.9V during 1ms. That's a 400mV drop, quite huge !
@@ -27,7 +27,7 @@ Obviously, that drop was triggering the voltage detector threshold, set at 3.08V
 
 After investigation, this is coming from the power consumption profile of the ESP. The average is around 60mA but there is spikes at 220mA during 1ms regulary. I could'nt get the exact frequency with my tools but it matched the voltage drop, something around 1OHz maybe.
 
-<img src="/blog/img/current-spike-no-capa.jpg" width="450" alt="Current spike without capacitor">
+<img src="/blog/img/esp/current-spike-no-capa.jpg" width="450" alt="Current spike without capacitor">
 <div align="center">*Current spike without capacitor*</div>
 
 220mA is below the maximum rating of the ME6206 so that's not the issue. But the surge in current induce an increase of voltage dropout. Which explains why there is a voltage drop when the battery is around 3.5v and not when the voltage is higher.
@@ -37,7 +37,7 @@ The solution would be to add a 2200µF capacitor to smooth out this dip. Smaller
 A 220µF started to round a bit the edges of the square dent in the voltage but nothing useful.
 Even a big 1000µF was not enough to smooth out the voltage completely. A small dip remains and triggered the voltage detector from time to time.
 
-<img src="/blog/img/voltage-dip-1000uF.jpg" width="450" alt="Voltage drop with 1000µF capacitor">
+<img src="/blog/img/esp/voltage-dip-1000uF.jpg" width="450" alt="Voltage drop with 1000µF capacitor">
 <div align="center">*Voltage drop with 1000µF capacitor*</div>
 
 As a side effect of this added capacitor, the voltage rise lowly on startup and the ESP does'nt work without a reset. A voltage detector on the enable pin is mandatory.
@@ -48,5 +48,5 @@ The real solution is to put the voltage detector BEFORE the voltage regulator. I
 Side note, as I has the scope plugged, I had a look at the voltage of the ESP. quite noisy.
 Look like a 220µF capacitor is a minimum to filter out the smalls spike but it's not enough for this big one.
 
-<img src="/blog/img/flat-voltage-no-capa.jpg" width="450" alt="Output voltage without capacitor">
+<img src="/blog/img/esp/flat-voltage-no-capa.jpg" width="450" alt="Output voltage without capacitor">
 <div align="center">*Output voltage without capacitor*</div>
